@@ -1,0 +1,62 @@
+.card--proposta {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 340px;
+	height: 450px;
+	margin: 0 50px;
+	border: solid 1px #3485ff;
+	border-radius: 10px;
+	transition: all ease 0.5s;
+	/* background: rgb(245, 245, 245); */
+}
+.card--proposta h2 {
+	color: #163862;
+	margin-bottom: 40px;
+	font-size: 25px;
+}
+.card--proposta .info .item {
+	color: black;
+	font-size: 25px;
+	margin: 15px 0;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+.card--proposta .info .item p {
+	color: #163862;
+	margin-left: 20px;
+	font-size: 20px;
+}
+
+.card--proposta .btn {
+	border: none;
+	margin-top: 40px;
+	background: #3485ff;
+	color: #fff;
+	border-radius: 20px;
+	padding: 10px 25px;
+	transition: all ease 0.5s;
+	font-size: 16px;
+}
+
+.card--proposta .btn.exluir {
+	background: #fff;
+	border: solid 1px #fa6262;
+	color: #fa6262;
+}
+
+.card--proposta .buttons {
+	display: flex;
+	gap: 20px;
+}
+
+.card--proposta:hover {
+	border: solid 1px #163862;
+	transform: translateY(-5px);
+}
+
+.card--proposta .btn:hover {
+	opacity: 0.7;
+}

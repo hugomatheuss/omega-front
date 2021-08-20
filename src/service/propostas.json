@@ -1,0 +1,83 @@
+[
+	{
+		"id_public": "d504f0aa-6209-9571-de5c-cd3458c29a68",
+		"createdAt": "2021-08-17T08:33:52.525Z",
+		"data_inicio": "2021-12-08",
+		"data_fim": "2025-12-08",
+		"fonte_energia": "CONVERNCIONAL",
+		"sub_mercado": "NORDESTE",
+		"valor_proposta": "1497",
+		"cargas": [
+			{
+				"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
+				"createdAt": "2021-08-17T08:33:52.389Z",
+				"nome_empresa": "Empresa B",
+				"consumo_kwh": "150",
+				"id": 2
+			},
+			{
+				"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
+				"createdAt": "2021-08-17T08:33:52.389Z",
+				"nome_empresa": "Empresa C",
+				"consumo_kwh": "300",
+				"id": 3
+			}
+		],
+		"id": 1,
+		"contratado": true
+	},
+	{
+		"id_public": "d504f0aa-6209-9571-de5c-cd3458c29a68",
+		"createdAt": "2021-08-17T08:33:52.525Z",
+		"data_inicio": "2021-12-08",
+		"data_fim": "2025-12-08",
+		"fonte_energia": "CONVERNCIONAL",
+		"sub_mercado": "NORDESTE",
+		"valor_proposta": "1497",
+		"cargas": [
+			{
+				"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
+				"createdAt": "2021-08-17T08:33:52.389Z",
+				"nome_empresa": "Empresa B",
+				"consumo_kwh": "150",
+				"id": 2
+			},
+			{
+				"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
+				"createdAt": "2021-08-17T08:33:52.389Z",
+				"nome_empresa": "Empresa C",
+				"consumo_kwh": "300",
+				"id": 3
+			}
+		],
+		"id": 1,
+		"contratado": false
+	},
+	{
+		"id_public": "d504f0aa-6209-9571-de5c-cd3458c29a68",
+		"createdAt": "2021-08-17T08:33:52.525Z",
+		"data_inicio": "2021-12-08",
+		"data_fim": "2025-12-08",
+		"fonte_energia": "CONVERNCIONAL",
+		"sub_mercado": "NORDESTE",
+		"valor_proposta": "1497",
+		"cargas": [
+			{
+				"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
+				"createdAt": "2021-08-17T08:33:52.389Z",
+				"nome_empresa": "Empresa B",
+				"consumo_kwh": "150",
+				"id": 2
+			},
+			{
+				"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
+				"createdAt": "2021-08-17T08:33:52.389Z",
+				"nome_empresa": "Empresa C",
+				"consumo_kwh": "300",
+				"id": 3
+			}
+		],
+		"id": 1,
+		"contratado": false
+	}
+]

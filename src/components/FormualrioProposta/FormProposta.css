@@ -1,0 +1,49 @@
+.criar-proposta {
+	width: 500px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 25px;
+	color: #163862;
+	border: solid 1px #163862;
+}
+
+.criar-proposta h2 {
+	font-size: 30px;
+	font-weight: 500;
+	color: #163862;
+	text-align: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.form .left,
+.form .right {
+	display: flex;
+	flex-direction: column;
+}
+
+.form .left .fonte-energia,
+.form .right .submercado {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+}
+
+.dataFim,
+.dataInicio {
+	width: 100px;
+	padding: 5px;
+	font-size: 15px;
+	text-align: center;
+}
