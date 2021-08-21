@@ -18,7 +18,7 @@ const ListaPropostas = () => {
 				setPropostas(response.data);
 			})
 			.catch((error) => {
-				// console.log(error.response.data.message);
+				console.log(error.response.data.message);
 			});
 	});
 

@@ -6,7 +6,6 @@ import StoreContext from "../../components/Store/Context";
 
 import "./criarProposta.css";
 import FormProposta from "../../components/FormualrioProposta/FormProposta";
-import ListaCargas from "../../components/ListaCargas/ListaCargas";
 const CriarProposta = () => {
 	const history = useHistory();
 	const { token } = useContext(StoreContext);
@@ -30,7 +29,6 @@ const CriarProposta = () => {
 			<Header />
 			<div className="body">
 				<FormProposta />
-				<ListaCargas />
 			</div>
 		</div>
 	);

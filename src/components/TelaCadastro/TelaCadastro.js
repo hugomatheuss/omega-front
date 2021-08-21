@@ -36,15 +36,15 @@ const TelaCadastro = () => {
 							title: "Error!",
 							text: `${error.response.data.message}`,
 							icon: "error",
-							confirmButtonText: "Cool",
+							confirmButtonText: "Ok",
 						}),
 					);
 			} else {
 				Swal.fire({
 					title: "Error!",
-					text: `o email ${email} já está cadastrado no sistema`,
+					text: `As senhas precisam ser iguais`,
 					icon: "error",
-					confirmButtonText: "Cool",
+					confirmButtonText: "Ok",
 				});
 			}
 		}

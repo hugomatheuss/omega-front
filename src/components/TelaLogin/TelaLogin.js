@@ -36,7 +36,7 @@ const TelaLogin = () => {
 						title: "Error!",
 						text: `${error.response.data.message}`,
 						icon: "error",
-						confirmButtonText: "Cool",
+						confirmButtonText: "Ok",
 					});
 				});
 		}

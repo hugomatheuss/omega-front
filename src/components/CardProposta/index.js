@@ -1,9 +1,11 @@
 import React, { Component, useState } from "react";
 import { api } from "../../service/api";
 import StoreContext from "../Store/Context";
+import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AiOutlineDollarCircle, AiOutlineCalculator } from "react-icons/ai";
 import { BsLightningFill, BsCalendar } from "react-icons/bs";
+import { GiPriceTag } from "react-icons/gi";
 import { SiGooglemaps } from "react-icons/si";
 import Modal from "../Modal/Modal";
 
@@ -41,15 +43,32 @@ const CardProposta = ({ props }) => {
 	}
 
 	function contratarProposta() {
-		api.patch(`proposta/${props.id_public}`, {
-			headers: { Authorization: `Bearer ${token}` },
-		})
-			.then(() => {
-				window.confirm("Confirma que deseja fazer a contratação?");
-			})
-			.catch((error) => {
-				alert(error.error.response.data.message);
-			});
+		Swal.fire({
+			title: "",
+			text: "Confirmar contratação",
+			icon: "info",
+			showCancelButton: true,
+			confirmButtonColor: "#3085d6",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Sim, contratar",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				api.patch(`proposta/${props.id_public}`, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+					.then(() => {
+						Swal.fire({
+							title: "Success!",
+							text: `Proposta criada com sucesso`,
+							icon: "success",
+							confirmButtonText: "Ok",
+						});
+					})
+					.catch((error) => {
+						alert(error.error.response.data.message);
+					});
+			}
+		});
 	}
 
 	const [open, setOpen] = useState(false);
@@ -92,7 +111,24 @@ const CardProposta = ({ props }) => {
 							<p>Total {consumoTotal(props.cargas)}KWH</p>
 						</div>
 					</label>
+					{props.desconto && (
+						<label>
+							<div className="item">
+								<GiPriceTag />
+								<p>Desconto 5%</p>
+							</div>
+						</label>
+					)}
+					{!props.desconto && (
+						<label>
+							<div className="item">
+								<GiPriceTag />
+								<p>Valor sem Desconto</p>
+							</div>
+						</label>
+					)}
 				</div>
+
 				{props.contratado && (
 					<button className="btn detalhes" onClick={handleClick}>
 						Detalhes
@@ -101,7 +137,7 @@ const CardProposta = ({ props }) => {
 				{!props.contratado && (
 					<div className="buttons">
 						<button
-							className="btn exluir"
+							className="btn excluir"
 							onClick={excluirProposta}
 						>
 							Excluir
