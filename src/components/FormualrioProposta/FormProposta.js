@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import MultiSelect from "react-multi-select-component";
 import { AiOutlineCalculator } from "react-icons/ai";
 import { RiBuilding4Line } from "react-icons/ri";
-
+import moment from "moment";
 import Swal from "sweetalert2";
 import StoreContext from "../../components/Store/Context";
 import DatePicker from "react-datepicker";
@@ -83,6 +83,7 @@ const FormProposta = () => {
 		values.cargas = cargasId;
 		values.data_inicio = dataInicio;
 		values.data_fim = dataFim;
+		console.log(values);
 		cadastrar(values);
 	}
 	function onChange({ target }) {
@@ -93,57 +94,62 @@ const FormProposta = () => {
 		});
 	}
 
-	function valorProposta(
-		data_inicio,
-		data_fim,
-		fonte_energia,
-		submercado,
-		consumo_total,
-	) {
-		const diff = moment(data_fim).diff(moment(data_inicio));
+	function valorProposta(cargas, values, dataInicio, dataFim) {}
 
-		const dias = moment.duration(diff).asDays();
-		const anos = moment.duration(diff).asYears();
+	function handleDataInicio(date) {
+		setDataInicio(date);
+		// if (
+		// 	cargasId.length == 0 ||
+		// 	values.fonte_energia == "" ||
+		// 	values.sub_mercado == "" ||
+		// 	dataInicio == null ||
+		// 	dataFim == null
+		// ) {
+		// 	return;
+		// } else {
+		// 	api.post(
+		// 		"proposta/valor",
+		// 		values.fonte_energia,
+		// 		values.sub_mercado,
+		// 		cargasId.length,
+		// 		dataInicio,
+		// 		dataFim,
+		// 	)
+		// 		.then((response) => {
+		// 			setValorTotal(response.data);
+		// 		})
+		// 		.catch((error) => {
+		// 			console.log(error.response.data.message);
+		// 		});
+		// }
+	}
 
-		let fonte_value;
-		let submercado_value;
-		let valor_total;
-		const valor_kw = 10;
-		let consumo_diario = consumo_total / 30;
-
-		switch (submercado) {
-			case "NORTE": {
-				submercado_value = 2;
-				break;
-			}
-			case "NORDESTE": {
-				submercado_value = -1;
-				break;
-			}
-			case "SUL": {
-				submercado_value = 3.5;
-				break;
-			}
-			case "SUDESTE": {
-				submercado_value = 1.5;
-				break;
-			}
-		}
-
-		fonte_value = fonte_energia == "CONVENCIONAL" ? 5 : -2;
-
-		if (anos >= 3) {
-			valor_total =
-				(consumo_diario *
-					dias *
-					(valor_kw + submercado_value + fonte_value)) /
-				0.05;
-		} else {
-			valor_total =
-				consumo_diario *
-				dias *
-				(valor_kw + submercado_value + fonte_value);
-		}
+	function handleDateFim(date) {
+		setDataFim(date);
+		// if (
+		// 	cargasId.length == 0 ||
+		// 	values.fonte_energia == "" ||
+		// 	values.sub_mercado == "" ||
+		// 	dataInicio == null ||
+		// 	dataFim == null
+		// ) {
+		// 	return;
+		// } else {
+		// 	api.post(
+		// 		"proposta/valor",
+		// 		values.fonte_energia,
+		// 		values.sub_mercado,
+		// 		cargasId.length,
+		// 		dataInicio,
+		// 		dataFim,
+		// 	)
+		// 		.then((response) => {
+		// 			setValorTotal(response.data);
+		// 		})
+		// 		.catch((error) => {
+		// 			console.log(error.response.data.message);
+		// 		});
+		// }
 	}
 
 	const cargasSelecionadas = cargas;
@@ -172,19 +178,21 @@ const FormProposta = () => {
 			setCargasId(cargasId.filter((carga) => carga !== target.value));
 		}
 	}
+
 	function handleChecked(id) {
 		console.log(cargasId);
 		return cargasId.includes(id);
 	}
 	return (
 		<div className="criar-proposta">
-			<h2>Valor Da Proposta</h2>
+			<h2>Faça seu orçamento</h2>
 			<form onSubmit={onSubmit} className="form">
 				<div className="info-partes">
 					<div className="left">
 						<label className="fonte-energia">
 							Fonte de Energia
 							<select
+								className="fonte_energia"
 								name="fonte_energia"
 								value={values.fonte_energia}
 								onChange={onChange}
@@ -201,22 +209,17 @@ const FormProposta = () => {
 							<DatePicker
 								className="dataInicio"
 								selected={dataInicio}
-								onChange={(date) => setDataInicio(date)}
+								onChange={(date) => handleDataInicio(date)}
 								dateFormat="dd/MM/yyyy"
 								minDate={new Date()}
 							/>
-							{/* <input
-								type="date"
-								selected={dataInicio}
-								onChange={(date) => setDataInicio(date)}
-
-							/> */}
 						</label>
 					</div>
 					<div className="right">
 						<label className="submercado">
 							Submercado
 							<select
+								className="sub_mercado"
 								name="sub_mercado"
 								value={values.sub_mercado}
 								onChange={onChange}
@@ -233,7 +236,7 @@ const FormProposta = () => {
 							<DatePicker
 								className="dataFim"
 								selected={dataFim}
-								onChange={(date) => setDataFim(date)}
+								onChange={(date) => handleDateFim(date)}
 								dateFormat="dd/MM/yyyy"
 								minDate={new Date()}
 							/>
@@ -243,14 +246,19 @@ const FormProposta = () => {
 				{cargas &&
 					cargas.map((carga, index) => {
 						return (
-							<label key={index + carga.nome_empresa}>
-								{carga.nome_empresa}
+							<label
+								key={index + carga.nome_empresa}
+								className="cargas-options"
+							>
+								{`${carga.nome_empresa} consumo ${carga.consumo_kwh}KWH`}
 								<input
 									type="checkbox"
+									className="cargas-check"
 									value={carga.id_public}
 									checked={handleChecked(carga.id_public)}
 									onChange={handleChange}
 								></input>
+								<span class="checkmark"></span>
 							</label>
 						);
 					})}

@@ -28,18 +28,36 @@ const CardProposta = ({ props }) => {
 	}
 
 	function excluirProposta() {
-		window.confirm(
-			"você está prester a excluir uma proposta, deseja continuar",
-		);
-		api.delete(`proposta/${props.id_public}`, {
-			headers: { Authorization: `Bearer ${token}` },
-		})
-			.then((response) => {
-				alert("Proposta Removida com sucesso");
-			})
-			.catch((error) => {
-				alert(error.response.data.message);
-			});
+		Swal.fire({
+			title: "Excluir Proposta",
+			text: "Tem certeza que deseja excluir a proposta",
+			icon: "question",
+			showCancelButton: true,
+			confirmButtonColor: "#3485ff",
+			cancelButtonColor: "#fa6262",
+			confirmButtonText: "Sim, excluir",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				api.delete(`proposta/${props.id_public}`, {
+					headers: { Authorization: `Bearer ${token}` },
+				})
+					.then(() => {
+						Swal.fire({
+							title: "Sucesso!",
+							text: `Proposta Excluida com Sucesso`,
+							icon: "success",
+							confirmButtonText: "Ok",
+						});
+					})
+					.catch((error) => {
+						alert(error.error.response.data.message);
+					});
+			}
+		});
+	}
+
+	function handleClassCard() {
+		document.getElementById("card");
 	}
 
 	function contratarProposta() {
@@ -48,8 +66,8 @@ const CardProposta = ({ props }) => {
 			text: "Confirmar contratação",
 			icon: "info",
 			showCancelButton: true,
-			confirmButtonColor: "#3085d6",
-			cancelButtonColor: "#d33",
+			confirmButtonColor: "#3485ff",
+			cancelButtonColor: "#fa6262",
 			confirmButtonText: "Sim, contratar",
 		}).then((result) => {
 			if (result.isConfirmed) {
@@ -75,7 +93,7 @@ const CardProposta = ({ props }) => {
 
 	return (
 		<>
-			<div className="card--proposta">
+			<div className="card--proposta" id="card">
 				<h2>{props.contratado ? "Contratado" : "Contrate Agora"}</h2>
 				<div className="info">
 					<label>

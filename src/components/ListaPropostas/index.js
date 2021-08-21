@@ -4,7 +4,7 @@ import CardProposta from "../CardProposta";
 import StoreContext from "../Store/Context";
 import { useContext } from "react";
 import { api } from "../../service/api";
-import NoProposta from "../NoProposta/NoProposta";
+import { NoProposta } from "../NoProposta/NoProposta";
 
 const ListaPropostas = () => {
 	const [propostas, setPropostas] = useState(null);
@@ -25,7 +25,6 @@ const ListaPropostas = () => {
 	return (
 		<div className="propostas">
 			{propostas && propostas.map((p) => <CardProposta props={p} />)}
-			{!propostas && <NoProposta />}
 		</div>
 	);
 };
