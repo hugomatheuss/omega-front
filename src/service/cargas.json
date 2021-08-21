@@ -1,0 +1,48 @@
+{
+	"cargas": [
+		{
+			"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
+			"createdAt": "2021-08-17T08:33:52.389Z",
+			"nome_empresa": "Eikon Comapany",
+			"consumo_kwh": "150",
+			"id": 2
+		},
+		{
+			"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
+			"createdAt": "2021-08-17T08:33:52.389Z",
+			"nome_empresa": "Eikon Comapany",
+			"consumo_kwh": "300",
+			"id": 3
+		},
+
+		{
+			"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
+			"createdAt": "2021-08-17T08:33:52.389Z",
+			"nome_empresa": "Legaly Company",
+			"consumo_kwh": "150",
+			"id": 2
+		},
+		{
+			"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
+			"createdAt": "2021-08-17T08:33:52.389Z",
+			"nome_empresa": "Eikon Comapany",
+			"consumo_kwh": "300",
+			"id": 3
+		},
+
+		{
+			"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
+			"createdAt": "2021-08-17T08:33:52.389Z",
+			"nome_empresa": "Legaly Company",
+			"consumo_kwh": "150",
+			"id": 2
+		},
+		{
+			"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
+			"createdAt": "2021-08-17T08:33:52.389Z",
+			"nome_empresa": "ABC Enterprice",
+			"consumo_kwh": "300",
+			"id": 3
+		}
+	]
+}

@@ -6,6 +6,7 @@ import Omega from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
 import "./TelaLogin.css";
+import Swal from "sweetalert2";
 
 function initialState() {
 	return { username: "", password: "" };
@@ -29,7 +30,15 @@ const TelaLogin = () => {
 					setToken(response.data.access_token);
 					history.push("/");
 				})
-				.catch((error) => alert(error.response.data.message));
+				.catch((error) => {
+					console.log(error.response.data.message);
+					Swal.fire({
+						title: "Error!",
+						text: `${error.response.data.message}`,
+						icon: "error",
+						confirmButtonText: "Cool",
+					});
+				});
 		}
 	}
 	function onSubmit(event) {

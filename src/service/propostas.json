@@ -1,83 +1,86 @@
 [
 	{
-		"id_public": "d504f0aa-6209-9571-de5c-cd3458c29a68",
-		"createdAt": "2021-08-17T08:33:52.525Z",
-		"data_inicio": "2021-12-08",
-		"data_fim": "2025-12-08",
-		"fonte_energia": "CONVERNCIONAL",
-		"sub_mercado": "NORDESTE",
-		"valor_proposta": "1497",
+		"id_public": "cba21755-2886-e266-20e9-51ca34602186",
+		"createdAt": "2021-08-20T04:08:21.317Z",
+		"data_inicio": "2021-08-21",
+		"data_fim": "2030-08-21",
+		"fonte_energia": "RENOVAVEL",
+		"sub_mercado": "NORTE",
+		"valor_proposta": "10956666.67",
 		"cargas": [
 			{
-				"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
-				"createdAt": "2021-08-17T08:33:52.389Z",
-				"nome_empresa": "Empresa B",
-				"consumo_kwh": "150",
-				"id": 2
+				"id_public": "17b2961d-1281-42a5-81f8-fc6fa7e17343",
+				"createdAt": "2021-08-20T03:34:23.941Z",
+				"nome_empresa": "Eikon Company",
+				"consumo_kwh": "250",
+				"id": 1
 			},
 			{
-				"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
-				"createdAt": "2021-08-17T08:33:52.389Z",
-				"nome_empresa": "Empresa C",
-				"consumo_kwh": "300",
-				"id": 3
+				"id_public": "28f2b6f7-35ba-98d5-0c21-e9e492f8ac04",
+				"createdAt": "2021-08-20T03:34:29.861Z",
+				"nome_empresa": "Legaly",
+				"consumo_kwh": "250",
+				"id": 2
 			}
 		],
-		"id": 1,
+		"desconto": true,
+		"id": 10,
 		"contratado": true
 	},
 	{
-		"id_public": "d504f0aa-6209-9571-de5c-cd3458c29a68",
-		"createdAt": "2021-08-17T08:33:52.525Z",
-		"data_inicio": "2021-12-08",
-		"data_fim": "2025-12-08",
-		"fonte_energia": "CONVERNCIONAL",
-		"sub_mercado": "NORDESTE",
-		"valor_proposta": "1497",
+		"id_public": "cba21755-2886-e266-20e9-51ca34602186",
+		"createdAt": "2021-08-20T04:08:21.317Z",
+		"data_inicio": "2021-08-21",
+		"data_fim": "2030-08-21",
+		"fonte_energia": "RENOVAVEL",
+		"sub_mercado": "NORTE",
+		"valor_proposta": "10956666.67",
 		"cargas": [
 			{
-				"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
-				"createdAt": "2021-08-17T08:33:52.389Z",
-				"nome_empresa": "Empresa B",
-				"consumo_kwh": "150",
-				"id": 2
+				"id_public": "17b2961d-1281-42a5-81f8-fc6fa7e17343",
+				"createdAt": "2021-08-20T03:34:23.941Z",
+				"nome_empresa": "Eikon Company",
+				"consumo_kwh": "250",
+				"id": 1
 			},
 			{
-				"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
-				"createdAt": "2021-08-17T08:33:52.389Z",
-				"nome_empresa": "Empresa C",
-				"consumo_kwh": "300",
-				"id": 3
+				"id_public": "28f2b6f7-35ba-98d5-0c21-e9e492f8ac04",
+				"createdAt": "2021-08-20T03:34:29.861Z",
+				"nome_empresa": "Legaly",
+				"consumo_kwh": "250",
+				"id": 2
 			}
 		],
-		"id": 1,
+		"desconto": true,
+		"id": 10,
 		"contratado": false
 	},
 	{
-		"id_public": "d504f0aa-6209-9571-de5c-cd3458c29a68",
-		"createdAt": "2021-08-17T08:33:52.525Z",
-		"data_inicio": "2021-12-08",
-		"data_fim": "2025-12-08",
-		"fonte_energia": "CONVERNCIONAL",
-		"sub_mercado": "NORDESTE",
-		"valor_proposta": "1497",
+		"id_public": "cba21755-2886-e266-20e9-51ca34602186",
+		"createdAt": "2021-08-20T04:08:21.317Z",
+		"data_inicio": "2021-08-21",
+		"data_fim": "2030-08-21",
+		"fonte_energia": "RENOVAVEL",
+		"sub_mercado": "NORTE",
+		"valor_proposta": "10956666.67",
 		"cargas": [
 			{
-				"id_public": "f15e34a0-7a11-096c-0136-511a37f4674d",
-				"createdAt": "2021-08-17T08:33:52.389Z",
-				"nome_empresa": "Empresa B",
-				"consumo_kwh": "150",
-				"id": 2
+				"id_public": "17b2961d-1281-42a5-81f8-fc6fa7e17343",
+				"createdAt": "2021-08-20T03:34:23.941Z",
+				"nome_empresa": "Eikon Company",
+				"consumo_kwh": "250",
+				"id": 1
 			},
 			{
-				"id_public": "acc22a42-c3b6-9a29-81de-593c2b9b8d84",
-				"createdAt": "2021-08-17T08:33:52.389Z",
-				"nome_empresa": "Empresa C",
-				"consumo_kwh": "300",
-				"id": 3
+				"id_public": "28f2b6f7-35ba-98d5-0c21-e9e492f8ac04",
+				"createdAt": "2021-08-20T03:34:29.861Z",
+				"nome_empresa": "Legaly",
+				"consumo_kwh": "500",
+				"id": 2
 			}
 		],
-		"id": 1,
+		"desconto": true,
+		"id": 10,
 		"contratado": false
 	}
 ]

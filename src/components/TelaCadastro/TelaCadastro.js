@@ -3,6 +3,7 @@ import { api } from "../../service/api";
 import Omega from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import "./TelaCadastro.css";
 
@@ -27,12 +28,24 @@ const TelaCadastro = () => {
 			if (password === confirmPassword) {
 				api.post("usuario/create", { nome, email, password })
 					.then((response) => {
-						alert("Usuario Criado com sucesso");
+						Swal.fire("Usuario Criado com sucesso");
 						history.push("/");
 					})
-					.catch((error) => alert(error.response.data.message));
+					.catch((error) =>
+						Swal.fire({
+							title: "Error!",
+							text: `${error.response.data.message}`,
+							icon: "error",
+							confirmButtonText: "Cool",
+						}),
+					);
 			} else {
-				alert("As senhas não correspondem");
+				Swal.fire({
+					title: "Error!",
+					text: `o email ${email} já está cadastrado no sistema`,
+					icon: "error",
+					confirmButtonText: "Cool",
+				});
 			}
 		}
 	}
@@ -69,7 +82,7 @@ const TelaCadastro = () => {
 					<input
 						type="email"
 						required="required"
-						class="input-text"
+						className="input-text"
 						name="email"
 						pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 						placeholder="your@email.com"
@@ -103,7 +116,6 @@ const TelaCadastro = () => {
 				</div>
 				<button className="btn-cadastro">Cadastrar</button>
 			</form>
-
 			<div className="logar">
 				{" "}
 				<p> Possui uma conta?</p>{" "}

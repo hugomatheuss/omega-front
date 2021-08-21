@@ -4,9 +4,10 @@ import CardProposta from "../CardProposta";
 import StoreContext from "../Store/Context";
 import { useContext } from "react";
 import { api } from "../../service/api";
+import NoProposta from "../NoProposta/NoProposta";
 
 const ListaPropostas = () => {
-	const [propostas, setPropostas] = useState([]);
+	const [propostas, setPropostas] = useState(null);
 	const { token } = useContext(StoreContext);
 
 	useEffect(() => {
@@ -16,16 +17,15 @@ const ListaPropostas = () => {
 			.then((response) => {
 				setPropostas(response.data);
 			})
-			.catch(() => {
-				console.log("Erro no request");
+			.catch((error) => {
+				// console.log(error.response.data.message);
 			});
 	});
 
 	return (
 		<div className="propostas">
-			{propostas.map((p) => (
-				<CardProposta props={p} />
-			))}
+			{propostas && propostas.map((p) => <CardProposta props={p} />)}
+			{!propostas && <NoProposta />}
 		</div>
 	);
 };
