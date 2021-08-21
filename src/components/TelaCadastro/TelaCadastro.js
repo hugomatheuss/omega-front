@@ -28,7 +28,12 @@ const TelaCadastro = () => {
 			if (password === confirmPassword) {
 				api.post("usuario/create", { nome, email, password })
 					.then((response) => {
-						Swal.fire("Usuario Criado com sucesso");
+						Swal.fire({
+							title: "Success!",
+							text: "Usuario Cadastrado com Sucesso",
+							icon: "success",
+							confirmButtonText: "Ok",
+						});
 						history.push("/");
 					})
 					.catch((error) =>

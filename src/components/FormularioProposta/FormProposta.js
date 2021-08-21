@@ -6,6 +6,7 @@ import StoreContext from "../../components/Store/Context";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./FormProposta.css";
+import moment from "moment";
 
 function initialState() {
 	return {
@@ -79,7 +80,6 @@ const FormProposta = () => {
 		values.cargas = cargasId;
 		values.data_inicio = dataInicio;
 		values.data_fim = dataFim;
-		console.log(values);
 		cadastrar(values);
 	}
 	function onChange({ target }) {
@@ -88,84 +88,70 @@ const FormProposta = () => {
 			...values,
 			[name]: value,
 		});
+		calcularProposta();
 	}
 
-	function valorProposta(cargas, values, dataInicio, dataFim) {}
+	function calcularProposta() {
+		if (
+			cargasId.length == 0 ||
+			values.fonte_energia == "" ||
+			values.sub_mercado == "" ||
+			dataInicio == null ||
+			dataFim == null
+		) {
+			return;
+		}
+		const diff = moment(dataFim).diff(moment(dataInicio));
+		const dias = moment.duration(diff).asDays();
+		const anos = moment.duration(diff).asYears();
+		let submercado_value = 0;
+		let fonte_value = 0;
+		let valor_total = 0;
+
+		switch (values.sub_mercado) {
+			case "NORTE": {
+				submercado_value = 2;
+				break;
+			}
+			case "NORDESTE": {
+				submercado_value = -1;
+				break;
+			}
+			case "SUL": {
+				submercado_value = 3.5;
+				break;
+			}
+			case "SUDESTE": {
+				submercado_value = 1.5;
+				break;
+			}
+		}
+
+		fonte_value = values.fonte_energia == "CONVENCIONAL" ? 5 : -2;
+
+		// if (anos >= 3) {
+		// 	valor_total =
+		// 		(consumo_diario *
+		// 			dias *
+		// 			(10 + submercado_value + fonte_value)) /
+		// 		0.05;
+		// } else {
+		// 	valor_total =
+		// 		consumo_diario * dias * (10 + submercado_value + fonte_value);
+		// }
+		// setValorTotal(valor_total);
+	}
 
 	function handleDataInicio(date) {
 		setDataInicio(date);
-		// if (
-		// 	cargasId.length == 0 ||
-		// 	values.fonte_energia == "" ||
-		// 	values.sub_mercado == "" ||
-		// 	dataInicio == null ||
-		// 	dataFim == null
-		// ) {
-		// 	return;
-		// } else {
-		// 	api.post(
-		// 		"proposta/valor",
-		// 		values.fonte_energia,
-		// 		values.sub_mercado,
-		// 		cargasId.length,
-		// 		dataInicio,
-		// 		dataFim,
-		// 	)
-		// 		.then((response) => {
-		// 			setValorTotal(response.data);
-		// 		})
-		// 		.catch((error) => {
-		// 			console.log(error.response.data.message);
-		// 		});
-		// }
+		calcularProposta();
 	}
 
 	function handleDateFim(date) {
 		setDataFim(date);
-		// if (
-		// 	cargasId.length == 0 ||
-		// 	values.fonte_energia == "" ||
-		// 	values.sub_mercado == "" ||
-		// 	dataInicio == null ||
-		// 	dataFim == null
-		// ) {
-		// 	return;
-		// } else {
-		// 	api.post(
-		// 		"proposta/valor",
-		// 		values.fonte_energia,
-		// 		values.sub_mercado,
-		// 		cargasId.length,
-		// 		dataInicio,
-		// 		dataFim,
-		// 	)
-		// 		.then((response) => {
-		// 			setValorTotal(response.data);
-		// 		})
-		// 		.catch((error) => {
-		// 			console.log(error.response.data.message);
-		// 		});
-		// }
+		calcularProposta();
 	}
 
-	const cargasSelecionadas = cargas;
-	function selecionarCarga(id_public) {
-		const carga = cargas.find((c) => {
-			return c.id_public == id_public;
-		});
-
-		const exist = cargasSelecionadas.find((c) => {
-			return c.id_public == id_public;
-		});
-		console.log(exist);
-		if (!exist) {
-			cargasSelecionadas.push(carga);
-		} else {
-			const index = cargasSelecionadas.findIndex(carga);
-			cargasSelecionadas.splice(index, 1);
-		}
-		// console.log(cargasSelecionadas);
-	}
 	const [cargasId, setCargasId] = useState([]);
 	function handleChange({ target }) {
 		if (target.checked) {
@@ -173,15 +159,15 @@ const FormProposta = () => {
 		} else {
 			setCargasId(cargasId.filter((carga) => carga !== target.value));
 		}
+		calcularProposta();
 	}
 
 	function handleChecked(id) {
-		console.log(cargasId);
 		return cargasId.includes(id);
 	}
 	return (
 		<div className="criar-proposta">
-			<h2>Faça seu orçamento</h2>
+			<h2>Cadastre sua Proposta</h2>
 			<form onSubmit={onSubmit} className="form">
 				<div className="info-partes">
 					<div className="left">
