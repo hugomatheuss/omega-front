@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Projeto Final
 ## Omega Energia | Gama Academy
-## Calculadora de Proposta
+## Calculadora de Proposta Frontend
 ## Equipe
  - Aldy Souza
  - Angelo Fernandes
