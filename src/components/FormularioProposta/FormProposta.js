@@ -1,10 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { api } from "../../service/api";
 import { useHistory } from "react-router-dom";
-import MultiSelect from "react-multi-select-component";
-import { AiOutlineCalculator } from "react-icons/ai";
-import { RiBuilding4Line } from "react-icons/ri";
-import moment from "moment";
 import Swal from "sweetalert2";
 import StoreContext from "../../components/Store/Context";
 import DatePicker from "react-datepicker";

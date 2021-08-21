@@ -1,11 +1,11 @@
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 import { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { api } from "../../service/api";
 import StoreContext from "../../components/Store/Context";
 
 import "./criarProposta.css";
-import FormProposta from "../../components/FormualrioProposta/FormProposta";
+import FormProposta from "../../components/FormularioProposta/FormProposta";
 const CriarProposta = () => {
 	const history = useHistory();
 	const { token } = useContext(StoreContext);

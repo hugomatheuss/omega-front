@@ -1,5 +1,5 @@
-import Header from "../../components/Header";
-import ListaPropostas from "../../components/ListaPropostas";
+import Header from "../../components/Header/Header";
+import ListaPropostas from "../../components/ListaPropostas/ListaPropostas";
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import StoreContext from "../../components/Store/Context";

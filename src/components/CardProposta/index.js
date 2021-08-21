@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { api } from "../../service/api";
 import StoreContext from "../Store/Context";
 import Swal from "sweetalert2";
@@ -54,10 +54,6 @@ const CardProposta = ({ props }) => {
 					});
 			}
 		});
-	}
-
-	function handleClassCard() {
-		document.getElementById("card");
 	}
 
 	function contratarProposta() {

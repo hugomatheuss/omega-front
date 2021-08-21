@@ -3,7 +3,6 @@ import Home from "./pages/home/home";
 import "./pages/globals.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import StoreProvider from "./components/Store/Provider";
-import RoutePrivate from "./components/Private/Private";
 import Login from "./pages/login/login";
 import Cadastro from "./pages/cadastro/cadastro";
 import CriarProposta from "./pages/criarProposta/criarProposta";
