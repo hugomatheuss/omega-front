@@ -77,6 +77,7 @@ const TelaCadastro = () => {
 						type="nome"
 						required="required"
 						name="nome"
+						pattern="[a-zA-Z]"
 						minLength={3}
 						placeholder="Digite Seu nome"
 						onChange={onChange}
