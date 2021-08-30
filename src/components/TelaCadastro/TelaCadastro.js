@@ -74,10 +74,9 @@ const TelaCadastro = () => {
 				<div className="user-cadastro__form-control">
 					<label htmlFor="nome">Nome</label>
 					<input
-						type="nome"
+						type="text"
 						required="required"
 						name="nome"
-						pattern="^[a-z ,.'-]+$"
 						minLength={3}
 						placeholder="Digite Seu nome"
 						onChange={onChange}
